@@ -1,5 +1,5 @@
 # Procesverslag
-**Auteur:** Niels Aling
+**Auteur:** -jouw naam-
 
 **De opdrachten:** [opdracht 1](opdracht1/index.html) en [opdracht 2](opdracht2/index.html)
 
@@ -14,7 +14,7 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
 
 
 ## Bronnenlijst
-  1. -bron 1-
+  1. https://www.youtube.com/watch?v=AyP1Nj9zU3k
   2. -bron 2-
   3. -...-
 
@@ -27,7 +27,7 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
 
 
   ### Je storyboard:
-  <img src="readme-images/dummy-plaatje.svg" width="375px" alt="storyboard voor opdracht 1">
+  <img src="readme-images/storyboard.jpg" width="375px" alt="storyboard voor opdracht 1">
 
 
   ### Je ambitie: 
