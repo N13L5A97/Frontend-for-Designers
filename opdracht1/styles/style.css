@@ -14,7 +14,6 @@
 
 
 
-
 /**************/
 /* CSS REMEDY */
 /**************/
@@ -68,15 +67,53 @@ h1{
 	border: solid 8px var(--color-text);
 	border-radius: 5em;
 	padding: .2em .8em;
+	position: relative;
+
+	width: 7em;
+	height: 2em;
+
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+	align-items: center;
+
 }
 
-h1:hover{
-	animation: letter-n 8s infinite;
-	
+#n {
+	display: inline-block;
+	align-items: center;
+}
+
+#i {
+	align-items: center;
+}
+
+#n2 {
+	grid-column-start: 2/3;
+}
+
+#t {
+	grid-column-start: 3/4;
+}
+
+#e {
+	grid-column-start: 4/5;
+}
+
+#n3 {
+	grid-column-start: 5/6;
+}
+
+#d {
+	grid-column-start: 6/7;
+}
+
+#o {
+	grid-column-start: 7/8;
 }
 
 
-@keyframes letter-n {
+
+@keyframes colorAnimation {
 
 	0%{
 
@@ -91,19 +128,46 @@ h1:hover{
 	}
 	
 	40%{
-
+		color: hsl(118, 100%, 51%);
 	}
 	
 	60%{
-
+		color: hsl(63, 100%, 50%);
 	}
 
 	80%{
-
+		color: hsl(35, 100%, 50%);
 	}
 
 	100%{
 		color: var(--color-text);
 	}
 
+}
+
+
+@keyframes positionAnimation{
+	0%{
+		transform: translateY(10em);
+	}
+
+	/* 20%{
+		transform: translateY(0);
+	}
+
+	40%{
+		transform: translateY(0);
+	}
+
+	60%{
+		transform: translateY(0);
+	}
+
+	80%{
+		transform: translateY(0);
+	} */
+
+	100%{
+		transform: translateY(0);
+	}
 }
