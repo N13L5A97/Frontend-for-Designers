@@ -66,49 +66,65 @@ h1{
 	letter-spacing: -.08em;
 	border: solid 8px var(--color-text);
 	border-radius: 5em;
-	padding: .2em .8em;
 	position: relative;
 
-	width: 7em;
+	min-width: 7em;
 	height: 2em;
-
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-	align-items: center;
-
 }
 
+h1 span{
+	position: absolute;
+	top: .4em;
+	animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+
 #n {
-	display: inline-block;
-	align-items: center;
+	left: .6em;
+	animation: colorAnimation 4s, positionY 4s;
+	
 }
 
 #i {
-	align-items: center;
+	left: 1.5em;
+	animation: colorAnimation 4s, positionY 4s;
+	animation-delay: 0.4s;
 }
 
 #n2 {
-	grid-column-start: 2/3;
+	left: 1.9em;
+	animation: colorAnimation 4s, positionY 4s;
+	animation-delay: 0.8s;
 }
 
 #t {
-	grid-column-start: 3/4;
+	left: 2.6em;
+	animation: colorAnimation 4s, positionY 4s;
+	animation-delay: 1.2s;
 }
 
 #e {
-	grid-column-start: 4/5;
+	left: 3.1em;
+	animation: colorAnimation 4s, positionY 4s;
+	animation-delay: 1.6s;
 }
 
 #n3 {
-	grid-column-start: 5/6;
+	left: 3.8em;
+	animation: colorAnimation 4s, positionY 4s;
+	animation-delay: 2s;
 }
 
 #d {
-	grid-column-start: 6/7;
+	left: 4.6em;
+	animation: colorAnimation 4s, positionY 4s;
+	animation-delay: 2.4s;
 }
 
 #o {
-	grid-column-start: 7/8;
+	left: 5.4em;
+	animation: colorAnimation 4s, positionY 4s;
+	animation-delay: 2.8s;
 }
 
 
@@ -122,16 +138,20 @@ h1{
 	}
 
 	20%{
+		color: hsl(303, 100%, 50%);
+	}
+
+	35%{
 	
 		color: hsl(244, 100%, 50%);
 
 	}
 	
-	40%{
+	50%{
 		color: hsl(118, 100%, 51%);
 	}
 	
-	60%{
+	65%{
 		color: hsl(63, 100%, 50%);
 	}
 
@@ -146,28 +166,24 @@ h1{
 }
 
 
-@keyframes positionAnimation{
+@keyframes positionY{
 	0%{
 		transform: translateY(10em);
-	}
+		scale: 1;
 
-	/* 20%{
-		transform: translateY(0);
 	}
 
 	40%{
-		transform: translateY(0);
+		scale: 3;
 	}
 
-	60%{
-		transform: translateY(0);
+	50%{
+		transform: translateY(-1em);
 	}
-
-	80%{
-		transform: translateY(0);
-	} */
 
 	100%{
 		transform: translateY(0);
+		scale: 1;
 	}
 }
+
