@@ -68,7 +68,7 @@ body {
 .btn-toggle{
 	width: 30%;
 	position: absolute;
-	top: 1em;
+	top: 30%;
 	left: 50%;
 	transform: translateX(-50%);
 }
