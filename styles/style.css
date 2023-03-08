@@ -1,0 +1,407 @@
+/* CSS Document */
+
+/*********/
+/* FONTS */
+/*********/
+@font-face {
+    font-family: 'pretendoregular';
+    src: url('../fonts/pretendo-webfont.woff2') format('woff2'),
+         url('../fonts/eenfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+
+/**************/
+/* CSS REMEDY */
+/**************/
+*, *::after, *::before {
+  box-sizing:border-box;  
+}
+
+button:not[disabled], summary {
+	cursor: pointer;
+}
+
+
+
+
+
+/*********************/
+/* CUSTOM PROPERTIES */
+/*********************/
+:root {
+	/* startje */
+	--color-text:hsl(356, 100%, 45%);
+	--color-background: white;
+	--dark-background: black;
+	--dark-text: white;
+}
+
+
+
+
+
+/****************/
+/* JOUW STYLING */
+/****************/
+body {
+	/* font */
+  font-family:Pretendo, sans-serif;
+  font-size: 1.5em;
+  background-color:var(--color-background);
+
+  /* positie */
+  height: 100dvh;
+  display: flex;
+  margin: 0;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+}
+
+/* jouw code */
+
+/* .btn-toggle{
+	width: 30%;
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	transform: translateX(-50%);
+} */
+
+
+h1{
+	color:var(--color-text);
+	letter-spacing: -.08em;
+	position: relative;
+	min-width: 7em;
+	height: 2em;
+}
+
+
+h1::before{
+	content: "";
+	min-width: 7em;
+	height: 2em;
+	border: solid 8px var(--color-text);
+	border-radius: 5em;
+	position: absolute;
+	left: 0;
+	top:0;
+
+	animation: reveal 7s ease-in-out;
+
+	-webkit-mask:conic-gradient(var(--color-text), var(--angle, 360deg), transparent 0);
+	mask:conic-gradient(var(--color-text), var(--angle, 360deg), transparent 0);
+}
+
+
+h1 span{
+	position: absolute;
+	top: 30%;
+	animation: colorAnimation 4s, positionY 6s;
+}
+
+
+/* Letter N */
+span:nth-of-type(1) {
+	left: .7em;
+}
+
+/* Letter i */
+span:nth-of-type(2) {
+	left: 1.6em;
+	animation-delay: 0.2s;
+}
+
+/* Letter n */
+span:nth-of-type(3){
+	left: 2em;
+	animation-delay: 0.4s;
+}
+
+/* Letter t */
+span:nth-of-type(4) {
+	left: 2.7em;
+	animation-delay: 0.6s;
+}
+
+/* Letter e */
+span:nth-of-type(5) {
+	left: 3.2em;
+	animation-delay: 0.8s;
+}
+
+/* Letter n */
+span:nth-of-type(6) {
+	left: 3.9em;
+	animation-delay: 1s;
+}
+
+/* Letter d */
+span:nth-of-type(7) {
+	left: 4.7em;
+	animation-delay: 1.2s;
+}
+
+/* Letter o */
+span:nth-of-type(8) {
+	left: 5.5em;
+	animation-delay: 1.4s;
+}
+
+/* light theme */
+/* body.light-theme{
+	background-color:var(--color-background);
+}
+
+h1.light-theme{
+	color:var(--color-text);
+}
+
+h1 span.light-theme{
+	animation: colorAnimation 4s, positionY 6s;
+}
+
+h1::before.light-theme{
+	border: solid 8px var(--color-text);
+	-webkit-mask:conic-gradient(var(--color-text) var(--angle, 360deg), transparent 0);
+	mask:conic-gradient(var(--color-text) var(--angle, 360deg), transparent 0);
+} */
+
+
+@keyframes colorAnimation {
+
+	0%{
+		color: hsl(303, 100%, 50%);
+
+	}
+
+	20%{
+		color: hsl(303, 100%, 50%);
+	}
+
+	35%{
+	
+		color: hsl(244, 100%, 50%);
+
+	}
+	
+	50%{
+		color: hsl(118, 100%, 51%);
+	}
+	
+	65%{
+		color: hsl(63, 100%, 50%);
+	}
+
+	80%{
+		color: hsl(35, 100%, 50%);
+	}
+
+	100%{
+		color: var(--color-text);
+		
+	}
+
+}
+
+@keyframes darkColorAnimation {
+
+	0%{
+		color: hsl(303, 100%, 50%);
+
+	}
+
+	20%{
+		color: hsl(303, 100%, 50%);
+	}
+
+	35%{
+	
+		color: hsl(244, 100%, 50%);
+
+	}
+	
+	50%{
+		color: hsl(118, 100%, 51%);
+	}
+	
+	65%{
+		color: hsl(63, 100%, 50%);
+	}
+
+	80%{
+		color: hsl(35, 100%, 50%);
+	}
+
+	100%{
+		color: var(--dark-text);
+		
+	}
+
+}
+
+
+
+
+@keyframes positionY{
+	0%{
+		transform: translateY(20em);
+		scale: 1;
+	}
+
+	20%{
+		transform: translateY(20em);
+		scale: 1;
+	}
+
+	35%{
+		scale: 3;
+	}
+
+	45%{
+		transform: translateY(-1em);
+	}
+
+	70%{
+		transform: translateY(0);
+		scale: 1;
+		transition-timing-function: cubic-bezier(0.000, 0.430, 0.395, 0.995);
+	}
+
+	73%{
+		transform: translateY(-.3em);
+		transition-timing-function: cubic-bezier(0.980, 0.005, 1.000, 0.620);
+	}
+
+	76%{
+		transform: translateY(0);
+		transition-timing-function: cubic-bezier(0.000, 0.430, 0.395, 0.995);
+	}
+
+	78%{
+		transform: translateY(-.1em);
+		transition-timing-function: cubic-bezier(0.980, 0.005, 1.000, 0.620);
+	}
+
+	80%{
+		transform: translateY(0);
+	}
+
+	100%{
+		transform: translateY(0);
+	}
+}
+
+
+/* niet gebruikt */
+@keyframes borderClipAnimation {
+	0%{
+		opacity: 1;
+		
+	}
+
+	5%{
+		opacity: 0;
+	}
+
+	10%{
+		opacity: 0;
+		clip-path: polygon(0 0, 0 0, 0 17%, 92% 17%, 91% 18%, 91% 18%, 2% 17%, 0 28%, 0 0, 1% 0)
+	}
+
+	50%{
+		opacity: 1;
+		clip-path: polygon(0 0, 0 0, 0 17%, 92% 17%, 91% 18%, 91% 18%, 2% 17%, 0 28%, 0 0, 1% 0)
+		}
+
+	65%{
+		clip-path: polygon(100% 0, 0 0, 0 17%, 92% 17%, 91% 18%, 91% 18%, 91% 18%, 91% 17%, 91% 17%, 100% 17%);
+	}
+
+	70%{
+		clip-path: polygon(100% 0, 0 0, 0 17%, 92% 17%, 91% 83%, 90% 84%, 91% 84%, 90% 100%, 91% 100%, 100% 100%);
+	}
+
+	90%{
+		clip-path: polygon(100% 0, 0 0, 0 17%, 92% 17%, 91% 83%, 8% 84%, 8% 83%, 0 83%, 0 100%, 100% 100%);
+	}
+
+	95%{
+		clip-path: polygon(100% 0, 0 0, 0 17%, 92% 17%, 91% 83%, 8% 84%, 8% 15%, 0 15%, 0 100%, 100% 100%);
+
+	}
+}
+
+/* met 4 stappen heb je meer cotrole over de versnelling in de verschillende delen */
+/* met https://matthewlein.com/tools/ceaser kun je custom versnellingen genereren */
+
+@keyframes reveal {
+	0% {
+		--angle:360deg;
+		opacity: 1;
+	}
+
+	10%{
+		--angle:360deg;
+		opacity: 0;
+	}
+
+	20%{
+		--angle:0deg;
+		opacity: 0;
+		
+	}
+
+	70%{
+		opacity: 1;
+		--angle:0deg;
+		animation-timing-function: ease-in;
+	}
+
+	85% {
+		--angle:180deg;
+		animation-timing-function:ease-out;
+	}
+
+	100% {
+		--angle:360deg;
+	}
+}
+
+/* om de browser te leren wat --angle is */
+@property --angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 360deg;
+}
+
+
+/* dark mode */
+@media (prefers-color-scheme: dark) {
+	body{
+		background-color:var(--dark-background);
+	}
+
+	h1{
+		color:var(--dark-text);
+	}
+
+	h1 span{
+		animation: darkColorAnimation 4s, positionY 6s;
+	}
+
+	h1::before{
+		border: solid 8px var(--dark-text);
+		-webkit-mask:conic-gradient(var(--dark-text) var(--angle, 360deg), transparent 0);
+		mask:conic-gradient(var(--dark-text) var(--angle, 360deg), transparent 0);
+	}
+
+
+
+}
