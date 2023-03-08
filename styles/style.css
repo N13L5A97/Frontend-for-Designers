@@ -6,7 +6,7 @@
 @font-face {
     font-family: 'pretendoregular';
     src: url('../fonts/pretendo-webfont.woff2') format('woff2'),
-         url('../fonts/eenfont.woff') format('woff');
+         url('../fonts/pretendo-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
