@@ -22,7 +22,7 @@
 
 
   ### Je storyboard:
-  <img src="readme-images/storyboard.jpg" width="375px" alt="storyboard voor opdracht 1">
+  <img src="readme-images/storyboard.JPG" width="375px" alt="storyboard voor opdracht 1">
 
 
   ### Je ambitie: 
