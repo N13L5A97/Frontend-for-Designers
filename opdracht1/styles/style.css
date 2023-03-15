@@ -5,8 +5,8 @@
 /*********/
 @font-face {
     font-family: 'pretendoregular';
-    src: url('pretendo-webfont.woff2') format('woff2'),
-         url('pretendo-webfont.woff') format('woff');
+    src: url('../fonts/pretendo-webfont.woff2') format('woff2'),
+         url('../fonts/pretendo-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -65,13 +65,13 @@ body {
 
 /* jouw code */
 
-.btn-toggle{
+/* .btn-toggle{
 	width: 30%;
 	position: absolute;
 	top: 30%;
 	left: 50%;
 	transform: translateX(-50%);
-}
+} */
 
 
 h1{
@@ -95,8 +95,8 @@ h1::before{
 
 	animation: reveal 7s ease-in-out;
 
-	-webkit-mask:conic-gradient(red var(--angle, 360deg), transparent 0);
-	mask:conic-gradient(red var(--angle, 360deg), transparent 0);
+	-webkit-mask:conic-gradient(var(--color-text), var(--angle, 360deg), transparent 0);
+	mask:conic-gradient(var(--color-text), var(--angle, 360deg), transparent 0);
 }
 
 
