@@ -60,51 +60,35 @@ button:not[disabled], summary {
 /****************/
 /* JOUW STYLING */
 /****************/
+
 body {
-	/* font */
-  font-family:Pretendo, sans-serif;
-  font-size: 1.5em;
-  background-color:var(--color-background);
-
-  /* positie */
-  height: 100dvh;
-  display: flex;
-  margin: 0;
-  justify-content: center;
-  align-items: center;
-
-  position: relative;
+	font-family: Pretendo, sans-serif;
+    font-size: clamp(4.7vmin, 1.5em, 1vmin);
+    background-color: var(--color-background);
+    height: 100dvh;
+    margin: 0;
+    display: flex;
 }
 
-/* jouw code */
-
-/* .btn-toggle{
-	width: 30%;
-	position: absolute;
-	top: 30%;
-	left: 50%;
-	transform: translateX(-50%);
-} */
-
-
 h1{
-	color:var(--color-text);
-	letter-spacing: -.08em;
-	position: relative;
-	min-width: 7em;
-	height: 2em;
+    color: var(--color-text);
+    letter-spacing: -.08em;
+    position: relative;
+    width: clamp(57vmin ,7em , 50vmin);
+    height: 2em;
+    margin: auto;
 }
 
 
 h1::before{
-	content: "";
-	min-width: 7em;
-	height: 2em;
-	border: solid 8px var(--color-text);
-	border-radius: 5em;
-	position: absolute;
-	left: 0;
-	top:0;
+    content: "";
+    width: clamp(65vmin, 8em, 50vmin);
+    height: 2em;
+    border: solid 0.2em var(--color-text);
+    border-radius: 5em;
+    position: absolute;
+    left: 0;
+    top: 0;
 }
 
 
