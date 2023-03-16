@@ -11,9 +11,6 @@
     font-style: normal;
 }
 
-
-
-
 /**************/
 /* CSS REMEDY */
 /**************/
@@ -26,9 +23,6 @@ button:not[disabled], summary {
 }
 
 
-
-
-
 /*********************/
 /* CUSTOM PROPERTIES */
 /*********************/
@@ -36,12 +30,31 @@ button:not[disabled], summary {
 	/* startje */
 	--color-text:hsl(356, 100%, 45%);
 	--color-background: white;
-	--dark-background: black;
-	--dark-text: white;
 }
 
+@media (prefers-color-scheme: dark){
+	:root{
+		--color-text: white;
+		--color-background: black;
+	}
+}
+
+@media (prefers-reduced-motion: no-preference){
+	h1::before{
+		animation: reveal 7s ease-in-out;
+
+		-webkit-mask:conic-gradient(var(--color-text), var(--angle, 360deg), transparent 0);
+		mask:conic-gradient(var(--color-text), var(--angle, 360deg), transparent 0);
+	}
+
+	h1 span{
+		animation: colorAnimation 4s, positionY 6s;
+	}
 
 
+
+
+}
 
 
 /****************/
@@ -92,18 +105,12 @@ h1::before{
 	position: absolute;
 	left: 0;
 	top:0;
-
-	animation: reveal 7s ease-in-out;
-
-	-webkit-mask:conic-gradient(var(--color-text), var(--angle, 360deg), transparent 0);
-	mask:conic-gradient(var(--color-text), var(--angle, 360deg), transparent 0);
 }
 
 
 h1 span{
 	position: absolute;
 	top: 30%;
-	animation: colorAnimation 4s, positionY 6s;
 }
 
 
@@ -153,25 +160,6 @@ span:nth-of-type(8) {
 	left: 5.5em;
 	animation-delay: 1.4s;
 }
-
-/* light theme */
-/* body.light-theme{
-	background-color:var(--color-background);
-}
-
-h1.light-theme{
-	color:var(--color-text);
-}
-
-h1 span.light-theme{
-	animation: colorAnimation 4s, positionY 6s;
-}
-
-h1::before.light-theme{
-	border: solid 8px var(--color-text);
-	-webkit-mask:conic-gradient(var(--color-text) var(--angle, 360deg), transparent 0);
-	mask:conic-gradient(var(--color-text) var(--angle, 360deg), transparent 0);
-} */
 
 
 @keyframes colorAnimation {
@@ -379,29 +367,4 @@ h1::before.light-theme{
   syntax: "<angle>";
   inherits: false;
   initial-value: 360deg;
-}
-
-
-/* dark mode */
-@media (prefers-color-scheme: dark) {
-	body{
-		background-color:var(--dark-background);
-	}
-
-	h1{
-		color:var(--dark-text);
-	}
-
-	h1 span{
-		animation: darkColorAnimation 4s, positionY 6s;
-	}
-
-	h1::before{
-		border: solid 8px var(--dark-text);
-		-webkit-mask:conic-gradient(var(--dark-text) var(--angle, 360deg), transparent 0);
-		mask:conic-gradient(var(--dark-text) var(--angle, 360deg), transparent 0);
-	}
-
-
-
 }
