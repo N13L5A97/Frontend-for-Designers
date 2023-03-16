@@ -218,9 +218,6 @@ span:nth-of-type(8) {
 
 }
 
-
-
-
 @keyframes positionY{
 	0%{
 		transform: translateY(20em);
