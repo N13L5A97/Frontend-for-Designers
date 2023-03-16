@@ -1,10 +1,25 @@
-Request Url: http://gateway.marvel.com/v1/public/comics 
-Request Method: GET 
-Params: {   
-    "apikey": "44d6b73c0df2264d2a74201719831cee",   
-    "ts": "a timestamp",   
-    "hash": "your hash" 
-} 
-Headers: {   
-    Accept: */* 
-}
+async function getComics() {
+    const comics = [];
+    const imagesFolder = "http://127.0.0.1:5500/opdracht2/images/";
+    
+    const response = await fetch(imagesFolder);
+    const html = await response.text();
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, "text/html");
+    const imageElements = doc.querySelectorAll("img");
+    
+    imageElements.forEach((img) => {
+      const imgUrl = imagesFolder + img.getAttribute("src");
+      comics.push(imgUrl);
+    });
+    
+    return comics;
+  }
+  
+  async function logComics() {
+    const comics = await getComics();
+    console.log(comics);
+  }
+  
+  logComics();
+  

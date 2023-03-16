@@ -4,16 +4,13 @@
 /* FONTS */
 /*********/
 @font-face {
-	font-family: 'eenfont';
-	src: url('../fonts/eenfont.woff2') format('woff2'),
-			 url('../fonts/eenfont.woff') format('woff');
+	font-family: 'Spider-Man';
+	src: url('../fonts/Spider-Man.woff2') format('woff2'),
+			 url('../fonts/Spider-Man.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;
 
 }
-
-
-
 
 
 /**************/
@@ -36,9 +33,20 @@ button:not[disabled], summary {
 /*********************/
 :root {
 	/* startje */
-	--color-text:#111;
-	--color-background:#eee;
+	--color-text:#ffffff;
+	--color-background:#e20000;
+	--font-titel: Spider-Man, sans-serif;
+	--font-headers: Montserrat, sans-serif;
+    --title-size: clamp(5vmin, 10em, 18vmin);
+    --h2-size: clamp(2vmin, 2em, 4vmin);
 }
+
+/* @media (prefers-color-scheme: dark) {
+	:root {
+		--color-text:#ffffff;
+		--color-background:#000000;
+	}
+} */
 
 
 
@@ -48,10 +56,45 @@ button:not[disabled], summary {
 /* JOUW STYLING */
 /****************/
 body {
-  font-family:eenfont, sans-serif;
   color:var(--color-text);
   background-color:var(--color-background);
+  margin: 0;
+  padding: 0;
 }
 
 /* jouw code */
 
+header{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+h1{
+	font-family: var(--font-titel);
+	font-size: var(--title-size);
+	margin-bottom: 0;
+	margin-top: .4em;
+}
+
+h2{
+	font-family: var(--font-headers);
+	font-size: var(--h2-size);
+	margin: 0;
+}
+
+img{
+	width: clamp(1vmin ,8em, 30vmin);
+}
+
+ul{
+    list-style: none;
+    margin: 1em;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: clamp( 1vmin, 1em, 3vmin);
+    overflow: scroll;
+}
