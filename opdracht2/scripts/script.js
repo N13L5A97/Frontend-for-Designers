@@ -26,6 +26,8 @@ new Sortable(collection, {
 // add comics to collection basket
 comics.forEach(comic=> {
   comic.addEventListener('click', (e) => {
+    emptyState()
+
     console.log(e.target)
 
     // de ingredienten
@@ -81,3 +83,27 @@ download.addEventListener('click', () => {
     link.click()
   })
 } )
+
+//empty state function
+function emptyState() {
+  if (basketComics.childElementCount === 0) {
+    console.log("empty")
+    const emptyState = document.createElement('p')
+    emptyState.innerHTML = 'No comics in your collection'
+    basketComics.appendChild(emptyState)
+  }
+
+  else{
+    console.log("not empty")
+    const emptyState = document.querySelector('#collection ul p')
+    basketComics.removeChild(emptyState)
+  }
+}
+
+//display amount of comics in basket
+function amountComics() {
+  
+}
+
+
+emptyState()
