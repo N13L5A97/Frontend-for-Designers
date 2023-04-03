@@ -217,13 +217,19 @@ ul{
 
 #collection li{
 	position: relative;
-	display: none;
+	visibility: hidden;
 }
 
 #collection li img{
 	height: 100%;
 }
 
+#amount{
+	font-family: var(--font-headers);
+	font-size: var(--h2-size);
+	font-weight: 700;
+	margin: auto 1em;
+}
 
 /* When collecion is open */
 #collection.show{
@@ -250,6 +256,10 @@ ul{
 	box-shadow: inset 0 0 2em black;
 }
 
+#collection.show li{
+	visibility: visible;
+}
+
 #collection.show li img{
 	width: 10em;
 	display: block;
@@ -262,6 +272,11 @@ ul{
 #collection.show h3{
 	display: block;
 }
+
+#collection.show #amount{
+	margin-top: 0;
+}
+
 
 button{
 	background-color: var(--color-text);

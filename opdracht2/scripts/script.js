@@ -26,7 +26,6 @@ new Sortable(collection, {
 // add comics to collection basket
 comics.forEach(comic=> {
   comic.addEventListener('click', (e) => {
-    emptyState()
 
     console.log(e.target)
 
@@ -45,18 +44,27 @@ comics.forEach(comic=> {
     //add - to remove button
     removeButton.innerHTML = '-'
     removeButton.classList.add('remove')
-    // remove comics from collection basket
-    removeButton.addEventListener('click', (e) => {
-      console.log("remove")
-      basketComics.removeChild(e.target.parentElement)
-    })
+
     //add remove button to list item
     li.appendChild(removeButton)
 
     //add list item to collection
     collection.appendChild(li)
-  })
 
+
+    // remove comics from collection basket
+    removeButton.addEventListener('click', (e) => {
+      console.log("remove")
+      basketComics.removeChild(e.target.parentElement)
+      //count amount of comics in basket
+      amountComics ()
+      emptyState()
+    })
+
+     //count amount of comics in basket
+     emptyState()
+     amountComics ()
+  })
 })
 
 // show basket 
@@ -93,7 +101,7 @@ function emptyState() {
     basketComics.appendChild(emptyState)
   }
 
-  else{
+  if (basketComics.childElementCount > 1) {
     console.log("not empty")
     const emptyState = document.querySelector('#collection ul p')
     basketComics.removeChild(emptyState)
@@ -102,8 +110,11 @@ function emptyState() {
 
 //display amount of comics in basket
 function amountComics() {
-  
+  const amount = document.querySelector('#amount')
+  amount.innerHTML = basketComics.childElementCount
+  console.log(basketComics.childElementCount)
 }
 
-
 emptyState()
+
+console.log(basketComics.childElementCount)
