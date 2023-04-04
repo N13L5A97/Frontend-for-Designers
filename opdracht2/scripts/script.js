@@ -1,11 +1,10 @@
 // lists
 const comicsList = document.querySelector('#comics ul')
-const collection = document.querySelector('#collection ul')
 const comics = document.querySelectorAll('#comics ul li')
 
-const showBasket = document.querySelector('#arrow')
-const basket = document.querySelector('#collection')
-const basketComics = document.querySelector('#collection ul')
+const showCollection = document.querySelector('#arrow')
+const collectionBar = document.querySelector('#collection')
+const collectionList = document.querySelector('#collection ul')
 
 new Sortable(comicsList, {
   group: {
@@ -17,7 +16,7 @@ new Sortable(comicsList, {
   sort: false // To disable sorting: set sort to false
 })
 
-new Sortable(collection, {
+new Sortable(collectionList, {
   group: 'shared',
   animation: 150
   
@@ -34,87 +33,116 @@ comics.forEach(comic=> {
     const newComic = document.createElement('img')
     const removeButton = document.createElement('button')
 
-    //het plaatje van image
-    newComic.src = e.target.src
-    //add image to list item
-    li.appendChild(newComic)
-
-
     // de button
     //add - to remove button
     removeButton.innerHTML = '-'
     removeButton.classList.add('remove')
 
+    //het plaatje van image
+    newComic.src = e.target.src
+
+    //add image to list item
+    li.appendChild(newComic)
+
     //add remove button to list item
     li.appendChild(removeButton)
 
     //add list item to collection
-    collection.appendChild(li)
+    collectionList.appendChild(li)
 
+    //count amount of comics in basket
+    amountComics ()
 
     // remove comics from collection basket
     removeButton.addEventListener('click', (e) => {
       console.log("remove")
-      basketComics.removeChild(e.target.parentElement)
+      collectionList.removeChild(e.target.parentElement)
       //count amount of comics in basket
       amountComics ()
-      emptyState()
     })
-
-     //count amount of comics in basket
-     emptyState()
-     amountComics ()
   })
 })
 
 // show basket 
-showBasket.addEventListener('click', () => {
-  basket.classList.toggle('show')
-  basket.style.transition = 'all 0.5s ease-in-out'
+showCollection.addEventListener('click', () => {
+  collectionBar.classList.toggle('show')
+  collectionBar.style.transition = 'all 0.5s ease-in-out'
   console.log("click")
 } )
 
 
 //download comics
 const download = document.querySelector('#download')
-download.addEventListener('click', () => {
+
+download.addEventListener('click', () => 
+{
   console.log("download")
+  const covers = document.querySelectorAll('#collection ul li img')
+
   //download comics
-  const comics = document.querySelectorAll('#collection ul li img')
-  comics.forEach(comic => {
-    console.log(comic.src)
+  covers.forEach(cover => 
+  {
+    console.log(cover.src)
 
     //create link
     const link = document.createElement('a')
-    link.href = comic.src
-    link.download = comic.src
+    link.href = cover.src
+    link.download = cover.src
     link.click()
   })
-} )
 
-//empty state function
-function emptyState() {
-  if (basketComics.childElementCount === 0) {
+  //give 3 seconds feedback to user comics are downloaded
+  // remove comics from basket
+  download.innerHTML = 'Downloading...'
+  setTimeout(() => 
+  { 
+    download.innerHTML = 'Download'
+    //remove comics from basket
+    covers.forEach(cover =>
+    {
+      collectionList.removeChild(cover.parentElement)
+    }) 
+
+    //count amount of comics in basket
+    amountComics ()
+  }, 3000)
+
+})
+
+// empty state
+// display amount of comics in basket
+function amountComics() 
+{
+  if (collectionList.childElementCount === 0) 
+  {
     console.log("empty")
-    const emptyState = document.createElement('p')
+    let emptyState = document.createElement('p')
+    emptyState.id= 'emptyState';
     emptyState.innerHTML = 'No comics in your collection'
-    basketComics.appendChild(emptyState)
-  }
+    collectionBar.appendChild(emptyState)
 
-  if (basketComics.childElementCount > 1) {
-    console.log("not empty")
-    const emptyState = document.querySelector('#collection ul p')
-    basketComics.removeChild(emptyState)
+    //remove amount
+    const amount = document.querySelector('#amount')
+    amount.innerHTML = ''
+  }
+  else if (collectionList.childElementCount === 1)
+  {
+    const amount = document.querySelector('#amount')
+    amount.innerHTML = collectionList.childElementCount
+    console.log(collectionList.childElementCount)
+    //remove empty state
+    let emptyState = document.getElementById('emptyState')
+    collectionBar.removeChild(emptyState)
+    console.log(emptyState)
+  }
+  else
+  {
+    const amount = document.querySelector('#amount')
+    amount.innerHTML = collectionList.childElementCount
+    console.log(collectionList.childElementCount)
   }
 }
 
-//display amount of comics in basket
-function amountComics() {
-  const amount = document.querySelector('#amount')
-  amount.innerHTML = basketComics.childElementCount
-  console.log(basketComics.childElementCount)
-}
+amountComics()
 
-emptyState()
-
-console.log(basketComics.childElementCount)
+console.log(collectionList.childElementCount)
