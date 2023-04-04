@@ -362,3 +362,18 @@ button{
 		width: 5em;
 	}
 }
+
+@media screen and (max-width: 500px) { 
+	#comics li
+	{
+		height: 10em;
+	}
+
+	#collection p:nth-of-type(2)
+	{
+		font-size: 0.8em;
+   		left: 50%;
+    	transform: translateX(-50%);
+    	margin-top: 1.5em;
+	}
+}

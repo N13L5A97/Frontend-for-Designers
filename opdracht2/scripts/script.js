@@ -20,6 +20,20 @@ document.addEventListener('keydown', (e) =>
     {
       currentComic.classList.remove('current')
       nextComic.classList.add('current')
+      // if next comic is not in middle of the view scroll to next comic and leave some margin
+      if (nextComic.offsetTop > window.innerHeight / 2)
+      {
+        window.scrollTo(0, (nextComic.offsetTop*0.9))
+      }
+    }
+
+    //if there is no next comic go to first comic
+    else
+    {
+      currentComic.classList.remove('current')
+      comics[0].classList.add('current')
+      //scroll to top
+      window.scrollTo(0, 0)
     }
   }
 
@@ -33,33 +47,79 @@ document.addEventListener('keydown', (e) =>
     {
       currentComic.classList.remove('current')
       previousComic.classList.add('current')
+
+      // if previous comic is not in middle of the view scroll to previous comic and leave some margin
+      if (previousComic.offsetTop < window.innerHeight / 2)
+      {
+        window.scrollTo(0, (previousComic.offsetTop*0.9))
+      }
+    }
+    //if there is no previous comic go to last comic
+    else
+    {
+      currentComic.classList.remove('current')
+      comics[comics.length - 1].classList.add('current')
+      //scroll to bottom
+      window.scrollTo(0, document.body.scrollHeight)
     }
   }
 
-  // if up arrow is pressed go to first comic and scroll to top
+  //if arrow up is pressed go to the 10th comic after the current comic
   else if (e.key === 'ArrowUp')
   {
     console.log('up')
-    // select first comic
+    // select 10th comic before current comic
     const currentComic = document.querySelector('.current')
-    const firstComic = comics[0]
-    currentComic.classList.remove('current')
-    firstComic.classList.add('current')
-    // scroll to top
-    window.scrollTo(0, 0)
+    const previousComic = currentComic.previousElementSibling
+    const previousComic2 = previousComic.previousElementSibling
+    const previousComic3 = previousComic2.previousElementSibling
+    const previousComic4 = previousComic3.previousElementSibling
+    const previousComic5 = previousComic4.previousElementSibling
+    const previousComic6 = previousComic5.previousElementSibling
+    const previousComic7 = previousComic6.previousElementSibling
+    const previousComic8 = previousComic7.previousElementSibling
+    const previousComic9 = previousComic8.previousElementSibling
+    const previousComic10 = previousComic9.previousElementSibling
+
+    if (previousComic10)
+    {
+      currentComic.classList.remove('current')
+      previousComic10.classList.add('current')
+      // if previous comic is not in middle of the view scroll to previous comic and leave some margin
+      if (previousComic10.offsetTop < window.innerHeight / 2)
+      {
+        window.scrollTo(0, (previousComic10.offsetTop*0.9))
+      }
+    }
   }
 
-  // if down arrow is pressed go to last comic
+  // if down arrow is pressed go to the 10th comic after the current comic
   else if (e.key === 'ArrowDown')
   {
     console.log('down')
-    // select last comic
+    // select 10th comic after current comic
     const currentComic = document.querySelector('.current')
-    const lastComic = comics[comics.length - 1]
-    currentComic.classList.remove('current')
-    lastComic.classList.add('current')
-    // scroll to bottom
-    window.scrollTo(0, document.body.scrollHeight)
+    const nextComic = currentComic.nextElementSibling
+    const nextComic2 = nextComic.nextElementSibling
+    const nextComic3 = nextComic2.nextElementSibling
+    const nextComic4 = nextComic3.nextElementSibling
+    const nextComic5 = nextComic4.nextElementSibling
+    const nextComic6 = nextComic5.nextElementSibling
+    const nextComic7 = nextComic6.nextElementSibling
+    const nextComic8 = nextComic7.nextElementSibling
+    const nextComic9 = nextComic8.nextElementSibling
+    const nextComic10 = nextComic9.nextElementSibling
+    
+    if (nextComic10)
+    {
+      currentComic.classList.remove('current')
+      nextComic10.classList.add('current')
+      // if next comic is not in middle of the view scroll to next comic and leave some margin
+      if (nextComic10.offsetTop > window.innerHeight / 2)
+      {
+        window.scrollTo(0, (nextComic10.offsetTop*0.9))
+      }
+    }
   }
   
   //if enter is pressed add comic to collection basket
