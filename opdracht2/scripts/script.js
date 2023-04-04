@@ -185,42 +185,51 @@ document.addEventListener('keydown', (e) =>
     console.log('escape')
     collectionBar.classList.remove('show')
   }
-  //if shift + d is pressed download comics
+
   // if d is pressed download comics
   else if (e.key === 'd')
   {
-    console.log('d is pressed')
-    //download comics
-    console.log("download")
-    const covers = document.querySelectorAll('#collection ul li img')
-
-    //download comics
-    covers.forEach(cover => 
+    // als er geen comics in de basket zitten geef een alert en stop de functie
+    if (collectionList.childElementCount === 0)
     {
-      console.log(cover.src)
+      alert('There are no comics in your basket')
+      return
+    }
+    else
+    {
+      console.log('d is pressed')
+      //download comics
+      console.log("download")
+      const covers = document.querySelectorAll('#collection ul li img')
 
-      //create link
-      const link = document.createElement('a')
-      link.href = cover.src
-      link.download = cover.src
-      link.click()
-    })
-
-    //give 3 seconds feedback to user comics are downloaded
-    // remove comics from basket
-    download.innerHTML = 'Downloading...'
-    setTimeout(() => 
-    { 
-      download.innerHTML = 'Download'
-      //remove comics from basket
-      covers.forEach(cover =>
+      //download comics
+      covers.forEach(cover => 
       {
-        collectionList.removeChild(cover.parentElement)
-      }) 
+        console.log(cover.src)
 
-      //count amount of comics in basket
-      amountComics ()
-    }, 3000)  
+        //create link
+        const link = document.createElement('a')
+        link.href = cover.src
+        link.download = cover.src
+        link.click()
+      })
+
+      //give 3 seconds feedback to user comics are downloaded
+      // remove comics from basket
+      download.innerHTML = 'Downloading...'
+      setTimeout(() => 
+      { 
+        download.innerHTML = 'Download'
+        //remove comics from basket
+        covers.forEach(cover =>
+        {
+          collectionList.removeChild(cover.parentElement)
+        }) 
+
+        //count amount of comics in basket
+        amountComics ()
+      }, 3000)  
+    }
   }
 })
 
@@ -278,37 +287,97 @@ const download = document.querySelector('#download')
 
 download.addEventListener('click', () => 
 {
+  // als er geen comics in de basket zitten geef een alert en stop de functie
+  if (collectionList.childElementCount === 0)
+  {
+    alert('There are no comics in your basket')
+    return
+  }
+  else
+  {
+    console.log("download")
+    const covers = document.querySelectorAll('#collection ul li img')
+
+    //download comics
+    covers.forEach(cover => 
+    {
+      console.log(cover.src)
+
+      //create link
+      const link = document.createElement('a')
+      link.href = cover.src
+      link.download = cover.src
+      link.click()
+    })
+
+    //give 3 seconds feedback to user comics are downloaded
+    // remove comics from basket
+    download.innerHTML = 'Downloading...'
+    setTimeout(() => 
+    { 
+      download.innerHTML = 'Download'
+      //remove comics from basket
+      covers.forEach(cover =>
+      {
+        collectionList.removeChild(cover.parentElement)
+      }) 
+
+      //count amount of comics in basket
+      amountComics ()
+    }, 3000)
+  }
+})
+
+const mobile = document.querySelector('#mobile')
+
+mobile.addEventListener('click', () => 
+{
   console.log("download")
   const covers = document.querySelectorAll('#collection ul li img')
 
-  //download comics
-  covers.forEach(cover => 
+  // als er geen comics in de basket zitten geef een alert en stop de functie
+  if (collectionList.childElementCount === 0)
   {
-    console.log(cover.src)
-
-    //create link
-    const link = document.createElement('a')
-    link.href = cover.src
-    link.download = cover.src
-    link.click()
-  })
-
-  //give 3 seconds feedback to user comics are downloaded
-  // remove comics from basket
-  download.innerHTML = 'Downloading...'
-  setTimeout(() => 
-  { 
-    download.innerHTML = 'Download'
-    //remove comics from basket
-    covers.forEach(cover =>
+    alert('There are no comics in your basket')
+    return
+  }
+  else
+  {
+    //download comics
+  covers.forEach(cover => 
     {
-      collectionList.removeChild(cover.parentElement)
-    }) 
-
-    //count amount of comics in basket
-    amountComics ()
-  }, 3000)
-
+      console.log(cover.src)
+  
+      //create link
+      const link = document.createElement('a')
+      link.href = cover.src
+      link.download = cover.src
+      link.click()
+    })
+  
+    //give 3 seconds feedback to user comics are downloaded
+    // remove comics from basket
+    mobile.innerHTML = '...'
+    setTimeout(() => 
+    { 
+      //remove inner html from button
+      mobile.innerHTML = ''
+  
+      // put image back in button
+      const mobileImage = document.createElement('img')
+      mobileImage.src = 'images/download.png'
+      mobile.appendChild(mobileImage)
+  
+      //remove comics from basket
+      covers.forEach(cover =>
+      {
+        collectionList.removeChild(cover.parentElement)
+      }) 
+  
+      //count amount of comics in basket
+      amountComics ()
+    }, 3000)
+  }
 })
 
 // empty state
