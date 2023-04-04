@@ -128,6 +128,18 @@ ul{
 	transform: scale(1.1);
 }
 
+#comics li:hover img::after{
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: var(--color-background);
+	opacity: .5;
+	z-index: 3;
+}
+
 #comics img{
 	height: 100%;
 }

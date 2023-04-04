@@ -3,21 +3,9 @@
 
 **De opdrachten:** [opdracht 1](opdracht1/index.html) en [opdracht 2](opdracht2/index.html)
 
-
-## Bronnenlijst
-  1. https://www.youtube.com/watch?v=AyP1Nj9zU3k
-  2. https://matthewlein.com/tools/ceaser
-  3. https://codepen.io/shooft/pen/PodNyKx
-  4. https://hslpicker.com/#10f
-  5. https://www.fontsquirrel.com/tools/webfont-generator
-  6. https://bennettfeely.com/clippy/
-
-
-
-
 ## Opdracht 1 plan
 
-<details open>
+<details>
   <summary>uitwerken na schetsen idee (voor week 2)</summary>
 
 
@@ -66,8 +54,23 @@
   
   <img src="readme-images/toggle.png" width="200px" alt="bummer">
 
-
 </details>
+
+
+
+<details>
+  <summary>Bronnenlijst Opdacht 1</summary>
+
+
+  1. https://www.youtube.com/watch?v=AyP1Nj9zU3k
+  2. https://matthewlein.com/tools/ceaser
+  3. https://codepen.io/shooft/pen/PodNyKx
+  4. https://hslpicker.com/#10f
+  5. https://www.fontsquirrel.com/tools/webfont-generator
+  6. https://bennettfeely.com/clippy/
+ 
+</details>
+
 
 
 
@@ -78,7 +81,9 @@
 
 
   ### Je ontwerp:
-  <img src="readme-images/dummy-plaatje.svg" width="375px" alt="ontwerp opdracht 2">
+  <img src="readme-images/sketch1.JPG" width="375px" alt="ontwerp opdracht 2">
+  <img src="readme-images/sketch2.JPG" width="375px" alt="ontwerp opdracht 2">
+  <img src="readme-images/sketch3.JPG" width="375px" alt="ontwerp opdracht 2">
 
 
   ### Je ambitie: 
@@ -279,4 +284,27 @@
     })
   </code></pre>
 
+  Daarnaast had ik eerst een ::before en een ::after op alle images met daarin het nummer en de naam van de comic.
+  Alleen heb ik deze comics handmatig in de HTML gezet omdat de API van MARVEL niet mee wilde werken. Daardoor heb ik niet alle gegevens van de comics er bij gezet. (Want dat is een beetje veel werk voor 100 comics). Ook raakte dit in de knoop met de toetsbediening, aangezien de ::before en ::after alleen te zien waren op :hover. 
+
+  
+
+</details>
+
+<details>
+  <summary>Bronnenlijst Opdacht 2</summary>
+
+
+  1. https://thenounproject.com/
+  2. https://developer.marvel.com/
+  3. https://developer.mozilla.org/en-US/docs/Web/CSS/clamp
+  4. https://github.com/SortableJS/Sortable
+  5. http://sortablejs.github.io/Sortable/
+  6. https://developer.mozilla.org/en-US/docs/Web/API/Element/keydown_event
+  7. https://extract.pics/
+  8. https://stackoverflow.com/questions/3749231/download-file-using-javascript-jquery
+  9. https://dev.to/sbodi10/download-images-using-javascript-51a9
+  10. https://developer.mozilla.org/en-US/docs/Web/API/Element/childElementCount
+  11. https://javascript.plainenglish.io/javascript-remove-id-from-element-30590b70dc92
+ 
 </details>
