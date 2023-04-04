@@ -269,7 +269,7 @@ ul{
 	height: 100%;
     overflow: scroll;
     padding: 2em;
-    box-shadow: inset 0 0 2em black;
+    box-shadow: var(--boxshadow);
     grid-row: 2/-1;
 	grid-column: 1/-1;
 }
@@ -366,7 +366,7 @@ button{
 
 #mobile img{
 	width: 2.5em;
-    filter: drop-shadow(0px 0px 0px #e20000) drop-shadow(0px 0px 0px #e20000);
+    filter: drop-shadow(0px 0px 0px var(--color-background)) drop-shadow(0px 0px 0px var(--color-background));
 }
 
 #download:active{
