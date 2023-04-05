@@ -202,18 +202,6 @@ document.addEventListener('keydown', (e) =>
       console.log("download")
       const covers = document.querySelectorAll('#collection ul li img')
 
-      //download comics
-      covers.forEach(cover => 
-      {
-        console.log(cover.src)
-
-        //create link
-        const link = document.createElement('a')
-        link.href = cover.src
-        link.download = cover.src
-        link.click()
-      })
-
       //give 3 seconds feedback to user comics are downloaded
       // remove comics from basket
       download.innerHTML = 'Downloading...'
@@ -225,6 +213,18 @@ document.addEventListener('keydown', (e) =>
         {
           collectionList.removeChild(cover.parentElement)
         }) 
+
+        //download comics
+        covers.forEach(cover => 
+        {
+          console.log(cover.src)
+  
+          //create link
+          const link = document.createElement('a')
+          link.href = cover.src
+          link.download = cover.src
+          link.click()
+        })
 
         //count amount of comics in basket
         amountComics ()
